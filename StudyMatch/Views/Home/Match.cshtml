@@ -1,0 +1,10 @@
+﻿@using SharedModelsLib;
+@model List<Cours>
+
+   @{
+       ViewData["Title"] = "Chercher groupes d'études";
+   }
+
+   <component type="typeof(MyBlazorLib.Components.Pages.MatchGroupeEtudeComponent)"
+              render-mode="Server" 
+              param-cours="Model"/>
