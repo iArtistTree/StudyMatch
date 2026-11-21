@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Data/MyAppData.csproj" Id="7b952943-e9c7-46d4-a2c0-b20f0492c6cb" />
   <Project Path="MyBlazorLib/MyBlazorLib.csproj" />
   <Project Path="SharedModelsLib/SharedModelsLib.csproj" />
   <Project Path="StudyMatch/MyMvcHost.csproj" />

@@ -1,6 +1,7 @@
 ﻿@inject NavigationManager NavManager
 
-@using SharedModelsLib;
+@using SharedModelsLib.Dtos;
+
 
 <div class="container mt-5">
     <h2>Groupes d'études</h2>
@@ -20,10 +21,10 @@
                 @foreach(var groupe in groupeEtude)
                 {
                     <tr>
-                        <td>@groupe.Cours.Nom</td>
-                        <td>@string.Join(", ",groupe.Membres.Select(m => m.Nom))</td>
+                        <td>@groupe.CoursCode</td> 
+                        <td>@string.Join(", ",groupe.MembresNoms.Select(m => m))</td>
                         <td>@groupe.JourRetenu à @(groupe.HeureRetenu)h</td>
-                        <td>@(groupe.Local?.Nom ?? "Aucun")</td>
+                        <td>@(groupe.LocalNom?.ToString() ?? "Aucun")</td>
                     </tr>
                 }
             </tbody>
@@ -33,5 +34,6 @@
 
 @code{
     [Parameter]
-    public List<GroupeEtude> groupeEtude{ get; set; }
+    public List<GroupeEtudeDto> groupeEtude{ get; set; }
 }
+

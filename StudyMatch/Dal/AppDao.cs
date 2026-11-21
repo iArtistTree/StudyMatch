@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿/*
+using System.Collections.Generic;
 using SharedModelsLib;
 
 namespace MyMvcHost.Data
@@ -37,7 +38,8 @@ namespace MyMvcHost.Data
             new Disponibilite("Jeudi", "WEB201", new List<int> { 8, 9, 10 }, "Katelynn"),
             new Disponibilite("Jeudi", "WEB201", new List<int> { 9, 10 }, "Eddy"),
             new Disponibilite("Vendredi", "JEU202", new List<int> { 11, 12 }, "Alice"),
-            new Disponibilite("Vendredi", "JEU202", new List<int> { 12, 13 }, "Bob")
+            new Disponibilite("Vendredi", "JEU202", new List<int> { 12, 13 }, "Bob"),
+            new Disponibilite("Vendredi", "JEU202", new List<int> { 14, 15 }, "Eddy")
         };
 
         public static List<Local> Locaux = new List<Local>
@@ -56,8 +58,11 @@ namespace MyMvcHost.Data
             {
                 { "Mercredi", new List<int> { 14, 15 } }
             }),
-            new Local("B-202", new Dictionary<string, List<int>>())
-            // B-202 n'a aucun créneau libre — pour tester le cas "aucun local disponible"
+            new Local("B-202", new Dictionary<string, List<int>>()),
+            new Local("C-312", new Dictionary<string , List<int>>
+            {
+                { "Vendredi", new List<int> { 14, 15 } }
+            })
         };
 
         public static List<GroupeEtude> Groupes = new List<GroupeEtude>
@@ -93,19 +98,34 @@ namespace MyMvcHost.Data
             return Cours;
         }
 
-        public static List<Etudiant> GetEtudiants()
+        public static List<Disponibilite> GetDisponibilitesByCours(string ccode)
         {
-            return Etudiants;
-        }
-
-        public static List<Disponibilite> GetDisponibilites()
-        {
-            return Disponibilites;
+            return Disponibilites.Where(d => d.CoursCode == ccode).ToList();
         }
 
         public static List<Local> GetLocaux()
         {
             return Locaux;
         }
+
+        public static Cours GetCoursByCode(string coursCode)
+        {
+            return Cours.FirstOrDefault(c => c.Code == coursCode);
+        }
+
+        public static Etudiant GetEtudiantByName(string name)
+        {
+            return Etudiants.FirstOrDefault(e => e.Nom == name);
+        }
+
+        public static Local? GetLocalByHoraire(string day, int time)
+        {
+            return Locaux.FirstOrDefault(l =>
+            l.Horaires.TryGetValue(day, out var heures) && heures.Contains(time)
+            && !GetGroupEtude().Any(g => g.Local == l && g.JourRetenu == day && g.HeureRetenu == time));
+
+            
+        }
     }
 }
+*/

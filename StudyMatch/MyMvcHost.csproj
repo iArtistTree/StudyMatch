@@ -1,19 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <RequiresAspNetWebAssets>true</RequiresAspNetWebAssets>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RequiresAspNetWebAssets>true</RequiresAspNetWebAssets>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\Data\" />
-  </ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.23" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.23">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MyBlazorLib\MyBlazorLib.csproj" />
-    <ProjectReference Include="..\SharedModelsLib\SharedModelsLib.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Data\MyAppData.csproj" />
+		<ProjectReference Include="..\MyBlazorLib\MyBlazorLib.csproj" />
+		<ProjectReference Include="..\SharedModelsLib\SharedModelsLib.csproj" />
+	</ItemGroup>
 
 </Project>
